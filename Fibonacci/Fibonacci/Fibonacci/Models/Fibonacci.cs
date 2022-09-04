@@ -54,6 +54,7 @@ namespace Fibonacci.Models
                 _tokenSource.Cancel();
                 _tokenSource = null;
                 _thread = null;
+               
             }, p => _thread != null);
 
             StopCommand = new DelegateCommand(p =>
@@ -65,7 +66,7 @@ namespace Fibonacci.Models
                 a = 0;
                 b = 1;
                 total = 0;
-                i = 0;
+                j = 1;
             }, p => _thread != null);
 
             StartCommand2 = new DelegateCommand((p) =>
@@ -98,7 +99,7 @@ namespace Fibonacci.Models
             _min = 2;
         }
 
-        private long a = 0, b = 1, total = 0, i;
+        private long a = 0, b = 1, total = 0, j = 1;
 
        
         private void Worker(object state)
@@ -106,15 +107,15 @@ namespace Fibonacci.Models
             var token = (CancellationToken)state;
             while (!token.IsCancellationRequested)
             {
-                if (i < txtnum)
+                if (j < txtnum)
                 {
-                    for (i = 1; i <= txtnum; i++)
+                    for (long i = j; i <= txtnum; i++)
                     {
                         total = a + b;
                         a = b;
                         b = total;
                         Value += a + " ";
-                    
+                        j++;
                         Thread.Sleep(1000);
                         if (token.IsCancellationRequested)
                         {
