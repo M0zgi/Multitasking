@@ -15,7 +15,7 @@ namespace Fibonacci.Class
         {
             res = new List<int>();
         }
-        public List<int>res { get; set; }
+        public List<int> res { get; set; }
 
         public bool IsPrime(int x)
         {

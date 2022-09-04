@@ -8,14 +8,22 @@
         Title="MainWindow" Height="650" Width="800"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <TextBlock x:Name="Tblfibonacci" HorizontalAlignment="Right" Margin="0,10,5,0" TextWrapping="Wrap" Text="Числа Фибоначчи" VerticalAlignment="Top" Height="25" Width="182" FontSize="20" FontWeight="Bold" />
-        <TextBlock x:Name="Tblprimenumbers" HorizontalAlignment="Left" Margin="12,10,0,0" TextWrapping="Wrap" Text="Простые числа" VerticalAlignment="Top" Height="25" Width="186" FontSize="20" FontWeight="Bold" />
-        <TextBlock x:Name="Tblnummin" HorizontalAlignment="Left" Height="24" Margin="10,56,0,0" TextWrapping="Wrap" Text="Минимальное число:" VerticalAlignment="Top" Width="205" FontSize="20" />
-        <TextBlock x:Name="Tblnummax" HorizontalAlignment="Left" Height="24" Margin="10,96,0,0" TextWrapping="Wrap" Text="Максимальное число:" VerticalAlignment="Top" Width="205" FontSize="20" />
-        <TextBox x:Name="txtnummin" HorizontalAlignment="Left" Height="24" Margin="221,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" Text="2" PreviewTextInput="txtnummin_PreviewTextInput" MouseLeave="txtnummin_MouseLeave" />
-        <TextBox x:Name="txtnummax" HorizontalAlignment="Left" Height="24" Margin="221,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" PreviewTextInput="txtnummax_PreviewTextInput" />
-        <TextBox x:Name="txtresult" HorizontalAlignment="Left" Height="334" Margin="14,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="299" IsReadOnly="True" IsReadOnlyCaretVisible="True"/>
+        <TextBlock x:Name="Tblfibonacci" HorizontalAlignment="Right" Margin="0,114,178,0" TextWrapping="Wrap" Text="Числа Фибоначчи" VerticalAlignment="Top" Height="25" Width="182" FontSize="20" FontWeight="Bold" />
+        <TextBlock x:Name="Tblprimenumbers" HorizontalAlignment="Left" Margin="12,114,0,0" TextWrapping="Wrap" Text="Простые числа" VerticalAlignment="Top" Height="25" Width="186" FontSize="20" FontWeight="Bold" />
+        <TextBlock x:Name="Tblnummin" HorizontalAlignment="Left" Height="24" Margin="16,12,0,0" TextWrapping="Wrap" Text="Минимальное число:" VerticalAlignment="Top" Width="204" FontSize="20" />
+        <TextBlock x:Name="Tblnummax" HorizontalAlignment="Left" Height="24" Margin="16,52,0,0" TextWrapping="Wrap" Text="Максимальное число:" VerticalAlignment="Top" Width="204" FontSize="20" />
+        <TextBox x:Name="txtnummin" HorizontalAlignment="Left" Height="24" Margin="269,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" Text="2" PreviewTextInput="txtnummin_PreviewTextInput" MouseLeave="txtnummin_MouseLeave" />
+        <TextBox x:Name="txtnummax" HorizontalAlignment="Left" Height="24" Margin="267,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" PreviewTextInput="txtnummax_PreviewTextInput" />
+        <TextBox x:Name="txtresult" HorizontalAlignment="Left" Height="334" Margin="14,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="343" IsReadOnly="True" IsReadOnlyCaretVisible="True"/>
         <Button x:Name="btncom" Content="Расчитать" HorizontalAlignment="Left" Margin="14,505,0,0" VerticalAlignment="Top" Width="109" Height="35" FontSize="20" Click="btncom_Click" />
-        <Button x:Name="btnclr" Content="Очистить" HorizontalAlignment="Left" Height="35" Margin="203,505,0,0" VerticalAlignment="Top" Width="109" FontSize="20" Click="btnclr_Click" />
+        <Button x:Name="btnclr" Content="Очистить" HorizontalAlignment="Left" Height="35" Margin="218,505,0,0" VerticalAlignment="Top" Width="109" FontSize="20" Click="btnclr_Click" />
+
+        <TextBox x:Name="txtresultfib" HorizontalAlignment="Right" Height="334" Margin="0,146,16,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="343" IsReadOnly="True" IsReadOnlyCaretVisible="True"/>
+        <Button x:Name="btncomfib" Content="Расчитать" HorizontalAlignment="Right" Margin="0,505,220,0" VerticalAlignment="Top" Width="109" Height="35" FontSize="20" Click="btncomfib_Click" />
+        <Button x:Name="btnclrfib" Content="Очистить" HorizontalAlignment="Right" Height="35" Margin="0,505,17,0" VerticalAlignment="Top" Width="110" FontSize="20" Click="btnclrfib_Click" />
+        <TextBox x:Name="txtnumfib" HorizontalAlignment="Right" Height="24" Margin="0,52,19,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" />
+        <TextBlock x:Name="Tblnumfib" HorizontalAlignment="Right" Height="24" Margin="0,52,116,0" TextWrapping="Wrap" Text="Число для расчета:" VerticalAlignment="Top" Width="243" FontSize="20" />
+
+
     </Grid>
 </Window>  

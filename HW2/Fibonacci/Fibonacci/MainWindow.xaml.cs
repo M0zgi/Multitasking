@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -31,6 +32,7 @@ namespace Fibonacci
 
         public Primenumbers primenumbers = new Primenumbers();
         List<int> ls = new List<int>();
+        List<int> fib = new List<int>();
 
         private void btncom_Click(object sender, RoutedEventArgs e)
         {
@@ -39,10 +41,32 @@ namespace Fibonacci
             int y = Convert.ToInt32(txtnummax.Text);
             ls.Clear();
 
+            ////поиска значений во вторичном потоке
+            //var thread = new Thread(() => primenumbers.Res(x, y));
+            //thread.Start();
+            //thread.Join();
 
-            ls = primenumbers.Res(x, y);
 
-            foreach (var list in  ls)
+            //----------------------------------------------------------------------------
+
+            // System.PlatformNotSupportedException:“Operation is not supported on this platform.”
+
+            //Func<int, int, List<int>> myFunc = new Func<int, int, List<int>>(primenumbers.Res);
+            //IAsyncResult asyncResult = myFunc.BeginInvoke(x, y, null, null);
+
+            //Получение результата асинхронной модели в контексте вторичного потока
+            //ls = myFunc.EndInvoke(asyncResult);
+
+            //----------------------------------------------------------------------------
+
+
+            Task task = Task.Run(() => ls = primenumbers.Res(x, y));
+            task.Wait();
+
+            // поиска значений в первичном потоке
+            //ls = primenumbers.Res(x, y);
+
+            foreach (var list in ls)
             {
                 txtresult.Text += list + " ";
             }
@@ -52,7 +76,7 @@ namespace Fibonacci
         {
             txtresult.Clear();
             txtnummax.Clear();
-            txtnummax.Text = "2";
+            txtnummin.Text = "2";
         }
 
         //проверка на ввод только чисел
@@ -75,6 +99,41 @@ namespace Fibonacci
         {
             if (txtnummin.Text == string.Empty)
                 txtnummin.Text = 2.ToString();
+        }
+
+        private void btncomfib_Click(object sender, RoutedEventArgs e)
+        {
+            
+            txtresultfib.Clear();
+
+            Class.Fibonacci fibonacci = new Class.Fibonacci();
+            
+            //ls.ForEach(delegate(int s)
+            //{
+            //    fib.Add(s);
+            //    fibonacci.res.Add(s);
+            //});
+
+
+            int x = Convert.ToInt32(txtnumfib.Text);
+           var thread = new Thread(() => fibonacci.Method(x)) { IsBackground = true };
+
+            thread.Start();
+            //thread.Join();
+
+            //Task task = Task.Run(() => fibonacci.Method(x)) ;
+            //task.Wait();
+
+            foreach (var list in fibonacci.res)
+            {
+                txtresultfib.Text += list + " ";
+            }
+        }
+
+        private void btnclrfib_Click(object sender, RoutedEventArgs e)
+        {
+            txtresultfib.Clear();
+            txtnumfib.Clear();
         }
     }
 }
