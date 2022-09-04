@@ -116,13 +116,13 @@ namespace Fibonacci
 
 
             int x = Convert.ToInt32(txtnumfib.Text);
-           var thread = new Thread(() => fibonacci.Method(x)) { IsBackground = true };
+           //var thread = new Thread(() => fibonacci.Method(x)) { IsBackground = true };
 
-            thread.Start();
+            //thread.Start();
             //thread.Join();
 
-            //Task task = Task.Run(() => fibonacci.Method(x)) ;
-            //task.Wait();
+            Task task = Task.Run(() => fibonacci.Method(x)) ;
+            task.Wait();
 
             foreach (var list in fibonacci.res)
             {
