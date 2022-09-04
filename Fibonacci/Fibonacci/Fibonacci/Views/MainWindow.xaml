@@ -18,16 +18,16 @@
         <TextBlock x:Name="Tblnummax" HorizontalAlignment="Left" Height="24" Margin="16,52,0,0" TextWrapping="Wrap" Text="Максимальное число:" VerticalAlignment="Top" Width="204" FontSize="20" />
         <TextBox x:Name="txtnummin" HorizontalAlignment="Left" Height="24" Margin="269,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" Text="{Binding Min}"/>
         <TextBox x:Name="txtnummax" HorizontalAlignment="Left" Height="24" Margin="267,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" Text="{Binding Max}"/>
-        <TextBox x:Name="txtresult" HorizontalAlignment="Left" Height="334" Margin="14,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="343" IsReadOnly="True" IsReadOnlyCaretVisible="True" Text="{Binding Value2}"/>
-        <Button x:Name="btncom" Content="Расчитать" HorizontalAlignment="Left" Margin="14,505,0,0" VerticalAlignment="Top" Width="109" Height="35" FontSize="20" Command="{Binding StartCommand2}"/>
-        <Button x:Name="btnclr" Content="Пауза" HorizontalAlignment="Left" Height="35" Margin="245,505,0,0" VerticalAlignment="Top" Width="109" FontSize="20" Command="{Binding PauseCommand2}"/>
-        <Button x:Name="primenumbers" Content="Остановить / Очистить" HorizontalAlignment="Left" Margin="67,567,0,0" VerticalAlignment="Top" Width="221" Height="34" FontSize="20" Command="{Binding StopCommand2}"/>
+        <TextBox x:Name="txtresult" HorizontalAlignment="Left" Height="334" Margin="14,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="358" IsReadOnly="True" IsReadOnlyCaretVisible="True" Text="{Binding Value2}"/>
+        <Button x:Name="btncom" Content="Расчитать / Продолжить" HorizontalAlignment="Left" Margin="14,505,0,0" VerticalAlignment="Top" Width="242" Height="35" FontSize="20" Command="{Binding StartCommand2}"/>
+        <Button x:Name="btnclr" Content="Пауза" HorizontalAlignment="Left" Height="35" Margin="261,505,0,0" VerticalAlignment="Top" Width="109" FontSize="20" Command="{Binding PauseCommand2}"/>
+        <Button x:Name="primenumbers" Content="Остановить / Очистить" HorizontalAlignment="Left" Margin="72,567,0,0" VerticalAlignment="Top" Width="221" Height="34" FontSize="20" Command="{Binding StopCommand2}"/>
 
-        <TextBox x:Name="txtresultfib" HorizontalAlignment="Right" Height="334" Margin="0,146,16,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="343" IsReadOnly="True" IsReadOnlyCaretVisible="True" Text="{Binding Value}"/>
+        <TextBox x:Name="txtresultfib" HorizontalAlignment="Right" Height="334" Margin="0,146,16,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="354" IsReadOnly="True" IsReadOnlyCaretVisible="True" Text="{Binding Value}"/>
 
-        <Button x:Name="btncomfib" Content="Расчитать" HorizontalAlignment="Right" Margin="0,505,250,0" VerticalAlignment="Top" Width="109" Height="35" FontSize="20" Command="{Binding StartCommand}"/>
+        <Button x:Name="btncomfib" Content="Расчитать / Продолжить" HorizontalAlignment="Right" Margin="0,505,132,0" VerticalAlignment="Top" Width="237" Height="35" FontSize="20" Command="{Binding StartCommand}"/>
         <Button x:Name="btnpausefib" Content="Пауза" HorizontalAlignment="Right" Height="35" Margin="0,505,17,0" VerticalAlignment="Top" Width="110" FontSize="20" Command="{Binding PauseCommand}" />
-        <Button x:Name="btnstopfib" Content="Остановить / Очистить" HorizontalAlignment="Right" Margin="0,567,80,0" VerticalAlignment="Top" Width="216" Height="35" FontSize="20" Command="{Binding StopCommand}"/>
+        <Button x:Name="btnstopfib" Content="Отменить / Очистить" HorizontalAlignment="Right" Margin="0,566,87,0" VerticalAlignment="Top" Width="216" Height="35" FontSize="20" Command="{Binding StopCommand}"/>
 
         <TextBox x:Name="txtnumfib" HorizontalAlignment="Right" Height="24" Margin="0,52,19,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" Text="{Binding txtnum}"/>
         <TextBlock x:Name="Tblnumfib" HorizontalAlignment="Right" Height="24" Margin="0,52,116,0" TextWrapping="Wrap" Text="Число для расчета:" VerticalAlignment="Top" Width="243" FontSize="20" />
