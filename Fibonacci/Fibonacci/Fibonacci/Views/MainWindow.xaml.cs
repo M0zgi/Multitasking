@@ -23,5 +23,20 @@ namespace Fibonacci.Views
         {
             InitializeComponent();
         }
+
+        private void txtnummin_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!char.IsDigit(e.Text,0)) e.Handled = true;
+        }
+
+        private void txtnummax_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!char.IsDigit(e.Text,0)) e.Handled = true;
+        }
+
+        private void txtnumfib_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!char.IsDigit(e.Text,0)) e.Handled = true;
+        }
     }
 }
