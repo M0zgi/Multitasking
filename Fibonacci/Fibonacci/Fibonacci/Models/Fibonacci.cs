@@ -92,6 +92,7 @@ namespace Fibonacci.Models
                 Value2 = string.Empty;
                 _min = 2;
                 _max = 200000000;
+                
 
             }, p => _thread != null);
 
@@ -104,6 +105,8 @@ namespace Fibonacci.Models
        
         private void Worker(object state)
         {
+            _flagCount = false;
+            
             var token = (CancellationToken)state;
             while (!token.IsCancellationRequested)
             {
@@ -122,6 +125,12 @@ namespace Fibonacci.Models
                             break;
                         }
                     }
+                }
+
+                if (j > txtnum && !_flagCount)
+                {
+                    Value += "\nРасчет окончен";
+                    _flagCount = true;
                 }
                
                 Thread.Sleep(1000);
@@ -186,21 +195,33 @@ namespace Fibonacci.Models
             return true;
         }
 
+        private int _count;
+        private bool _flagCount;
         private void Worker2(object state)
         {
+             _flagCount = false;
+            _count = _min;
             var token = (CancellationToken)state;
             while (!token.IsCancellationRequested)
             {
                 for (int i = _min; i < _max; i++)
                 {
+                    _count++;
+
                     if (IsPrime(i))
                     {
                         Value2 += i + " ";
                         _min = i + 1;
+                        
                     }
-                    
 
-                    Thread.Sleep(1000);
+                    if (_count > _max && !_flagCount)
+                    {
+                        Value2 += "\nРасчет окончен";
+                        _flagCount = true;
+                    }
+
+                    Thread.Sleep(500);
                     if (token.IsCancellationRequested)
                     {
                         break;

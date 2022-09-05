@@ -38,5 +38,57 @@ namespace Fibonacci.Views
         {
             if (!char.IsDigit(e.Text,0)) e.Handled = true;
         }
+
+        private bool isFocused = false;
+        private void txtnummin_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            if (isFocused) {
+                isFocused = false;
+                (sender as TextBox).SelectAll();
+            }
+        }
+
+        private void txtnummin_GotFocus(object sender, RoutedEventArgs e)
+        {
+            isFocused = true;
+        }
+
+        private void txtnummax_GotFocus(object sender, RoutedEventArgs e)
+        {
+            isFocused = true;
+        }
+
+        private void txtnummax_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            if (isFocused) {
+                isFocused = false;
+                (sender as TextBox).SelectAll();
+            }
+        }
+
+        private void txtnumfib_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            if (isFocused) {
+                isFocused = false;
+                (sender as TextBox).SelectAll();
+            }
+        }
+
+        private void txtnumfib_GotFocus(object sender, RoutedEventArgs e)
+        {
+            isFocused = true;
+        }
+
+        private void primenumbers_Click(object sender, RoutedEventArgs e)
+        {
+            txtnummin.Text = "2";
+            txtnummax.Text = "200000000";
+
+        }
+
+        private void btnstopfib_Click(object sender, RoutedEventArgs e)
+        {
+            txtnumfib.Text = "0";
+        }
     }
 }
