@@ -12,7 +12,7 @@
         <models:Fibonacci x:Key="viewmodel"></models:Fibonacci>
     </Window.Resources>
     <Grid DataContext="{StaticResource viewmodel}">
-        <TextBlock x:Name="Tblfibonacci" HorizontalAlignment="Right" Margin="0,114,178,0" TextWrapping="Wrap" Text="Числа Фибоначчи" VerticalAlignment="Top" Height="25" Width="182" FontSize="20" FontWeight="Bold" />
+        <TextBlock x:Name="Tblfibonacci" HorizontalAlignment="Right" Margin="0,114,189,0" TextWrapping="Wrap" Text="Числа Фибоначчи" VerticalAlignment="Top" Height="25" Width="182" FontSize="20" FontWeight="Bold" />
         <TextBlock x:Name="Tblprimenumbers" HorizontalAlignment="Left" Margin="12,114,0,0" TextWrapping="Wrap" Text="Простые числа" VerticalAlignment="Top" Height="25" Width="186" FontSize="20" FontWeight="Bold" />
         <TextBlock x:Name="Tblnummin" HorizontalAlignment="Left" Height="24" Margin="16,12,0,0" TextWrapping="Wrap" Text="Минимальное число:" VerticalAlignment="Top" Width="204" FontSize="20" />
         <TextBlock x:Name="Tblnummax" HorizontalAlignment="Left" Height="24" Margin="16,52,0,0" TextWrapping="Wrap" Text="Максимальное число:" VerticalAlignment="Top" Width="204" FontSize="20" />

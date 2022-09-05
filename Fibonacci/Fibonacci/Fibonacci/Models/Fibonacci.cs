@@ -204,7 +204,7 @@ namespace Fibonacci.Models
             var token = (CancellationToken)state;
             while (!token.IsCancellationRequested)
             {
-                for (int i = _min; i < _max; i++)
+                for (int i = _min; i <= _max; i++)
                 {
                     _count++;
 
