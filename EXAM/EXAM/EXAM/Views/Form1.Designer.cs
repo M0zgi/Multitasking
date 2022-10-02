@@ -36,6 +36,7 @@
             this.lB_wards = new System.Windows.Forms.ListBox();
             this.tB_words = new System.Windows.Forms.TextBox();
             this.btn_search = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // btn_allDrives
@@ -104,7 +105,7 @@
             // 
             // btn_search
             // 
-            this.btn_search.Location = new System.Drawing.Point(18, 315);
+            this.btn_search.Location = new System.Drawing.Point(12, 400);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(75, 23);
             this.btn_search.TabIndex = 7;
@@ -112,11 +113,21 @@
             this.btn_search.UseVisualStyleBackColor = true;
             this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(372, 395);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(802, 94);
+            this.listBox1.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1186, 450);
+            this.ClientSize = new System.Drawing.Size(1186, 641);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btn_search);
             this.Controls.Add(this.tB_words);
             this.Controls.Add(this.lB_wards);
@@ -142,5 +153,6 @@
         private ListBox lB_wards;
         private TextBox tB_words;
         private Button btn_search;
+        private ListBox listBox1;
     }
 }
