@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Data;
 using EXAM.Models;
 
@@ -6,6 +7,7 @@ namespace EXAM
     public partial class Form1 : Form
     {
         Drives drives = new Drives();
+
         public Form1()
         {
             InitializeComponent();
@@ -20,7 +22,7 @@ namespace EXAM
         }
 
         private void MySearch(object s)
-        {
+        { 
             pool.WaitOne();
             drives.SearchWords1();
             pool.Release();
@@ -41,21 +43,30 @@ namespace EXAM
         private void btn_subdir_Click(object sender, EventArgs e)
         {
             drives.countFolders = 0;
-            lB_allDrives.Items.Clear();
-            lB_subdir.Items.Clear();
+            //lB_allDrives.Items.Clear();
+            //lB_subdir.Items.Clear();
 
             foreach (var d in drives.GetDirectories())
             {
-                lB_subdir.Items.Add(d);
+                Drives._subDir.Add(d);
+                
+                //lB_subdir.Items.Add(d);
             }
 
             pool = new Semaphore(drives._getDirectories.Count, drives._getDirectories.Count + 2, Drives.guid.ToString());
-            
-            for (int i = 0; i < lB_subdir.Items.Count; i++)
+
+
+            for (int i = 0; i < Drives._subDir.Count; i++)
             {
-                drives._start_path = lB_subdir.Items[i].ToString();
+                drives._start_path = Drives._subDir[i];
                 new Thread(MySearch).Start(i);
             }
+
+            //for (int i = 0; i < lB_subdir.Items.Count; i++)
+            //{
+            //    drives._start_path = lB_subdir.Items[i].ToString();
+            //    new Thread(MySearch).Start(i);
+            //}
 
             //for (int i = 0; i < lB_subdir.Items.Count; i++)
             //{
@@ -69,7 +80,7 @@ namespace EXAM
             //    }
             //}
 
-            
+
 
             //// MessageBox.Show(drives.countFolders.ToString());
 
@@ -90,17 +101,15 @@ namespace EXAM
             //    MessageBox.Show(ex.ToString());
             //}
 
-            
+
         }
 
         private void btn_add_wards_Click(object sender, EventArgs e)
         {
             
             lB_wards.Items.Add(tB_words.Text);
-            drives.mywords.Add(tB_words.Text);
+            drives.mywords[tB_words.Text] = 0;
             //MessageBox.Show(Drives.Length.ToString());
-
-            
         }
 
         private void btn_search_Click(object sender, EventArgs e)
@@ -108,12 +117,17 @@ namespace EXAM
 
             
             listBox1.Items.Clear();
+            lB_popular.Items.Clear();
 
             foreach (var item in Drives.ls)
             {
                 listBox1.Items.Add(item); 
             }
-            
+
+            foreach (var popular in drives.mywords)
+            {
+                lB_popular.Items.Add(popular.Key + ": " + popular.Value);
+            }
 
             //var folder = lB_subdir.Items[1].ToString();
 

@@ -27,6 +27,7 @@ namespace EXAM.Models
         private DriveInfo[] _allDirectories;
 
         //public List<string> _allDrivesList { get; set; }
+        public static List<string> _subDir { get; set; } = new List<string>();
         public List<string> _getDirectories { get; set; }
 
         //static List<string> ls = new List<string>();
@@ -40,7 +41,9 @@ namespace EXAM.Models
 
         public string _start_path { get; set; }
 
-        public List<string> mywords { get; set; } = new List<string>();
+       // public List<string> mywords { get; set; } = new List<string>();
+
+       public Dictionary<string, int> mywords = new Dictionary<string, int>();
 
         //public List<string> GetRecursFiles(string start_path)
         //{
@@ -81,6 +84,7 @@ namespace EXAM.Models
                 {
                     //ls.Add(folder);
                     //ls.AddRange(GetRecursFiles(folder));
+                   
                     GetRecursFiles(folder);
                 }
                 string[] files = Directory.GetFiles(start_path);
@@ -190,19 +194,20 @@ namespace EXAM.Models
                 
                 //string slovo = "fhdddf3445dfg";
 
-                foreach (string slovo in mywords)
+                foreach (string slovo in mywords.Keys)
                 {
                     if (words.Contains($"{slovo}"))
                     {
                         lock (block)
                         {
                             Length++;
+                            mywords[slovo]++;
                         }
 
                         ls.Add(filename);
                         //File.Copy(filename, @"C:\dir2\", true);
-                        _randomValue = rnd.Next(0, 1110);
-                        File.Copy(filename, @"C:\dir2\" + _randomValue + "." + Path.GetFileName(filename), true);
+                        _randomValue = rnd.Next(0, 11110);
+                        File.Copy(filename, @"C:\dir2\" + _randomValue + ". " + Path.GetFileName(filename), true);
 
                         //MessageBox.Show($"было найдено \n {filename}");
                     }
