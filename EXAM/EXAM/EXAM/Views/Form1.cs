@@ -61,47 +61,6 @@ namespace EXAM
                 drives._start_path = Drives._subDir[i];
                 new Thread(MySearch).Start(i);
             }
-
-            //for (int i = 0; i < lB_subdir.Items.Count; i++)
-            //{
-            //    drives._start_path = lB_subdir.Items[i].ToString();
-            //    new Thread(MySearch).Start(i);
-            //}
-
-            //for (int i = 0; i < lB_subdir.Items.Count; i++)
-            //{
-            //    //Thread thr = ();
-            //    lB_allDrives.Items.Clear();
-
-            //    foreach (var d in drives.GetRecursFiles((string)lB_subdir.Items[i]))
-            //    {
-            //        lB_allDrives.Items.Add(d);
-            //        drives.countFolders++;
-            //    }
-            //}
-
-
-
-            //// MessageBox.Show(drives.countFolders.ToString());
-
-            //try
-            //{
-            //    for (int i = 0; i < drives.countDrive; i++)
-            //    {
-            //        string[] dirs = Directory.GetDirectories((string)lB_subdir.Items[i]);
-
-            //        foreach (string dir in dirs)
-            //        {
-            //            lB_subdir.Items.Add(dir);
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.ToString());
-            //}
-
-
         }
 
         private void btn_add_wards_Click(object sender, EventArgs e)
@@ -128,22 +87,6 @@ namespace EXAM
             {
                 lB_popular.Items.Add(popular.Key + ": " + popular.Value);
             }
-
-            //var folder = lB_subdir.Items[1].ToString();
-
-
-            //try
-            //{
-            //    var results = Directory.GetFiles(folder, "*.txt", SearchOption.AllDirectories)
-            //        .AsParallel()
-            //        .SelectMany(x=>drives.GetFilieredLines(x, "public class"));
-            //}
-            //catch (System.Exception ex)
-            //{
-            //    // MessageBox.Show(e.Message);
-            //}
-
-
         }
     }
 }
